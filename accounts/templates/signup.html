@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {% block title %} Formulaire d'incription{% endblock %}
+</head>
+<body>
+    {% block content %}
+        <h3>Inscrivez-vous</h3>
+        <form method="post">
+            {% csrf_token %}
+
+                {{ form.as_p }}
+
+                {% for message in errors.values %}
+                    <h3 style="color:red">
+                        {{ message }}
+                    </h3>
+                {% endfor %}
+
+            <button><a href="/login/">Retouner</a></button>
+            <input type="submit" value="S'inscrire">
+        </form>
+    {% endblock %}
+</body>
+</html>

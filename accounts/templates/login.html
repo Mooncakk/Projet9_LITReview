@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}Page d'acceuil{% endblock %}
+</head>
+<body>
+    {% block content %}
+        <div>
+            <div>
+                <h2>Inscrivez-vous maintenant</h2>
+                <p>
+                    <button>
+                        <a href="/signup/">S'inscrire</a>
+                    </button>
+                </p>
+            </div>
+            <div>
+                <h2>Connectez-vous</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <p>
+                        <label for="username">Nom d'utilisateur</label>
+                        <input type="text" name=username id="username">
+                    </p>
+
+                    <p>
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name=password id="password">
+                    </p>
+                    <button type="submit">Se connecter</button>
+
+                </form>
+            </div>
+        </div>
+
+    {% endblock %}
+
+</body>
+</html>

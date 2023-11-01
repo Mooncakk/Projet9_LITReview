@@ -1,0 +1,23 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Flux{% endblock %}
+
+{% block content %}
+    <div>
+        <button type="button"><a href="{% url 'création_ticket' %}">Demander une critique</a></button>
+        <button type="button"><a href="">Créer une critique</a></button>
+    </div>
+	{% for ticket in tickets %}
+
+        {{ ticket.title }}
+        {{ ticket.description }}
+        {% if ticket.thumbnail %}
+            <img src="{{ ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
+        {% endif %}
+        {{ ticket.user }}
+        {{ ticket.time_created }}
+        {{ ticket.last_update }}<br/><br/>
+
+    {% endfor %}
+
+{% endblock %}

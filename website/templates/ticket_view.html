@@ -1,0 +1,14 @@
+{% extends 'base_user.html' %}
+
+    {% block content %}
+
+        {{ ticket.title }}
+        {{ ticket.description }}
+        {% if ticket.thumbnail %}
+            <img src="{{ ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
+        {% endif %}
+        {{ ticket.user }}
+        {{ ticket.time_created }}
+        {{ ticket.last_update }}<br/><br/>
+
+    {% endblock %}

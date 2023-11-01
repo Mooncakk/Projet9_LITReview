@@ -1,0 +1,23 @@
+{% extends 'base_user.html' %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}Créer un ticket{% endblock %}
+</head>
+<body>
+    {% block content %}
+
+            <h2>Créer un ticket</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+                <input type="submit" value="Envoyer">
+
+            </form>
+    {% endblock %}
+
+</body>
+</html>

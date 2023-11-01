@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title> LITReview | {% block title %}{% endblock %}</title>
+</head>
+    <nav>
+        {% block navbar %}<h2>LITReview</h2>{% endblock navbar %}
+    </nav>
+<body>
+    <div>
+        <h2>Bonjour {{ user }}</h2>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>

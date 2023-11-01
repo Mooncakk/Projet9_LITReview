@@ -1,0 +1,15 @@
+{% extends 'base_user.html' %}
+
+    {% block content %}
+
+        <h2>Modifier votre ticket</h2>
+        <form method="post" enctype=multipart/form-data>
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button><a href="{% url 'post' %}">Retourner</a></button>
+            <input type="submit" value="Envoyer">
+
+            </form>
+    {% endblock %}

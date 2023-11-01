@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title> LITReview | {% block title %}{% endblock %}</title>
+</head>
+<nav>
+    {% block navbar %}
+        <h2>LITReview</h2>
+        <ol>
+            <li><a href="{% url 'flux' %}">Flux</a></li>
+            <li><a href="{% url 'post' %}">Posts</a></li>
+            <li><a>Abonnements</a></li>
+            <li><a href="{% url 'déconnexion' %}">Se déconnecter</a></li>
+        </ol>
+    {% endblock navbar %}
+</nav>
+
+<body>
+    <div>
+        <h2>Bonjour {{ user }}</h2>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+
+
+    {% endblock %}
+
+</body>
+</html>
