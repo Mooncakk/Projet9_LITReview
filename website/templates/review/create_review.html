@@ -1,0 +1,30 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Créer une critique{% endblock %}
+
+{% block content %}
+    <h3>Créer une critique</h3>
+    <p>Vous êtes en train de poster en réponse à</p>
+    <div>
+        {{ ticket.title }}
+        {{ ticket.description }}
+        {% if ticket.thumbnail %}
+            <img src="{{ ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
+        {% endif %}
+        {{ ticket.user }}
+        {{ ticket.time_created }}
+        {{ ticket.last_update }}<br/><br/>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+
+        <p>Critique</p>
+        <div>
+            {{ form.as_p }}
+        </div>
+
+        <button><a href="{% url 'flux' %}">Retourner</a></button>
+        <input type="submit" value="Envoyer">
+
+    </form>
+{% endblock %}

@@ -4,19 +4,19 @@
 
 {% block content %}
 
-	{% for ticket in tickets %}
+	{% for post in posts %}
 
-        {{ ticket.title }}
-        {{ ticket.description }}
-        {% if ticket.thumbnail %}
-            <img src="{{ ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
+        {{ post.title }}
+        {{ post.description }}
+        {% if post.thumbnail %}
+            <img src="{{ post.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
         {% endif %}
-        {{ ticket.user }}
-        {{ ticket.time_created }}
-        {{ ticket.last_update }}<br/><br/>
+        {{ post.user }}
+        {{ post.time_created }}
+        {{ post.last_update }}<br/><br/>
 
-        <button><a href="{% url 'modifier_ticket' pk=ticket.id %}">Modifier</a></button>
-        <button><a href="{% url 'ticket' pk=ticket.id %}">Supprimer</a></button>
+        <button><a href="{% url 'modifier_ticket' pk=post.id %}">Modifier</a></button>
+        <button><a href="{% url 'ticket' pk=post.id %}">Supprimer</a></button>
 
     {% endfor %}
 

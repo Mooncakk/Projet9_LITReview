@@ -5,18 +5,20 @@
 {% block content %}
     <div>
         <button type="button"><a href="{% url 'création_ticket' %}">Demander une critique</a></button>
-        <button type="button"><a href="">Créer une critique</a></button>
+        <button type="button"><a href="{% url 'création_critique_et_ticket' %}">Créer une critique</a></button>
     </div>
-	{% for ticket in tickets %}
+	{% for post in posts %}
+        <div>
+            {% if post.content_type == 'TICKET' %}
 
-        {{ ticket.title }}
-        {{ ticket.description }}
-        {% if ticket.thumbnail %}
-            <img src="{{ ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
-        {% endif %}
-        {{ ticket.user }}
-        {{ ticket.time_created }}
-        {{ ticket.last_update }}<br/><br/>
+                {% include 'ticket_details.html' %}
+                <button type="submit"><a href="{% url 'création_critique_en_réponse' pk=post.id %}">Créer une critique</a></button>
+
+            {% elif post.content_type == 'REVIEW' %}
+                {% include 'review_details.html' %}
+
+        </div><br><br>
+            {% endif %}
 
     {% endfor %}
 

@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 
 from LITReview import settings
 from accounts.views import signup, log_user, logout_user
-from website.views import home, create_ticket, flux, posts, ticket_view, update_ticket, delete_ticket
+from website.views import home, create_ticket, flux, posts, ticket_view, update_ticket, delete_ticket, create_review_from_ticket, create_review_and_ticket
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,11 +30,12 @@ urlpatterns = [
     path('flux/', flux, name='flux'),
     path('posts/', posts, name='post'),
 
-    path('create_ticket/', create_ticket, name='création_ticket'),
-    path('update_ticket/<str:pk>/', update_ticket, name='modifier_ticket'),
+    path('create-ticket/', create_ticket, name='création_ticket'),
+    path('update-ticket/<str:pk>/', update_ticket, name='modifier_ticket'),
     path('ticket/<str:pk>/', ticket_view, name='ticket'),
-    path('delete_ticket/<str:pk>/', delete_ticket, name='supprimer_ticket'),
+    path('delete-ticket/<str:pk>/', delete_ticket, name='supprimer_ticket'),
 
-    #path('')
+    path('create-review/ticket/<str:pk>/', create_review_from_ticket, name='création_critique_en_réponse'),
+    path('create-review-and-ticket/', create_review_and_ticket, name='création_critique_et_ticket')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,18 @@
+{% extends 'base_user.html' %}
+
+{% block title %} Créer une critique{% endblock %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ ticket_form.as_p }}
+        </div>
+        <div>
+            {{ review_form.as_p }}
+        </div>
+
+        <button><a href="{% url 'flux' %}">Retourner</a></button>
+        <input type="submit" value="envoyer">
+    </form>
+{% endblock %}

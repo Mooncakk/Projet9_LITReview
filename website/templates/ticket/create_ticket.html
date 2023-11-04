@@ -9,14 +9,16 @@
 <body>
     {% block content %}
 
-            <h2>Créer un ticket</h2>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+        <h3>Créer un ticket</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
 
-                {{ form.as_p }}
-                <input type="submit" value="Envoyer">
+            {{ form.as_p }}
 
-            </form>
+            <button><a href="{% url 'flux' %}">Retourner</a></button>
+            <input type="submit" value="Envoyer">
+
+        </form>
     {% endblock %}
 
 </body>

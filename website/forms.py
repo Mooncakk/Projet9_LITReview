@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, forms, widgets
 
 from website.models import Ticket, Review
 
@@ -12,14 +12,20 @@ class TicketForm(ModelForm):
                   'thumbnail']
         labels = {'title': 'Titre',
                   'description': 'Description',
-                  'thumbnail': 'Image'}
+                  'thumbnail': 'Image',
+                  }
 
 
-class ReviewForm(ModelForm):
+class ReviewForm(ModelForm, forms.Form):
 
     class Meta:
         model = Review
-        fiels = ['ticket', 'headline', 'rating', 'body']
+        fields = ['headline', 'rating', 'body']
         labels = {'headline': 'Titre',
                   'rating': 'Note',
                   'body': 'Commentaire'}
+
+
+
+
+
