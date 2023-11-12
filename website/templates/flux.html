@@ -2,6 +2,8 @@
 
 {% block title %}Flux{% endblock %}
 
+{% block subtitle %}Flux{% endblock %}
+
 {% block content %}
     <div>
         <button type="button"><a href="{% url 'création_ticket' %}">Demander une critique</a></button>
@@ -13,7 +15,7 @@
                 {% if post.user == user %}
                     <h4>Vous avez publié une critique</h4>
                 {% elif post.user != user %}
-                    <h5>{{ post.user }} a demandé une critique</h5>
+                    <h4>{{ post.user }} a demandé une critique</h4>
                 {% endif %}
                 {% include 'review/review_details.html' %}
 

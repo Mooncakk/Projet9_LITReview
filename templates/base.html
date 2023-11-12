@@ -11,7 +11,13 @@
     </nav>
 <body>
     <div>
-        <h2>Bonjour {{ user }}</h2>
+        <p>
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        </p>
     </div>
     {% block content %}
 

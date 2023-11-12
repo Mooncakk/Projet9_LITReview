@@ -1,6 +1,6 @@
-from django.forms import ModelForm, forms, widgets
+from django.forms import ModelForm, RadioSelect
 
-from website.models import Ticket, Review, UserFollows
+from website.models import Ticket, Review
 
 
 class TicketForm(ModelForm):
@@ -16,7 +16,7 @@ class TicketForm(ModelForm):
                   }
 
 
-class ReviewForm(ModelForm, forms.Form):
+class ReviewForm(ModelForm):
 
     class Meta:
         model = Review
@@ -24,7 +24,5 @@ class ReviewForm(ModelForm, forms.Form):
         labels = {'headline': 'Titre',
                   'rating': 'Note',
                   'body': 'Commentaire'}
-
-
 
 
