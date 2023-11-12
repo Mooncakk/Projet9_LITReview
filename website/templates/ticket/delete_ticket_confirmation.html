@@ -4,15 +4,9 @@
 
 {% block content %}
     <h4>Etes vous sûr de vouloir supprimer ce ticket ?</h4>
-    {{ ticket.title }}
-    {{ ticket.description }}
-    {% if ticket.thumbnail %}
-        <img src="{{ ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
-    {% endif %}
-    {{ ticket.user }}
-    {{ ticket.time_created }}<br/><br/>
+    {% include 'ticket/ticket_details.html' %}
 
-    <button><a href="{% url 'post' %}">Retourner</a></button>
-    <button><a href="{% url 'supprimer_ticket' pk=ticket.id %}">Supprimer</a></button>
+    <button><a href="{% url 'posts' %}">Retourner</a></button>
+    <button><a href="{% url 'supprimer_ticket' pk=post.id %}">Supprimer</a></button>
 
 {% endblock %}

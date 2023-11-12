@@ -7,17 +7,17 @@
     <title> LITReview | {% block title %}{% endblock %}</title>
 </head>
 <div>
-    {% block subtitle %}
-
-    {% endblock %}
+    <h3>
+        {% block subtitle %}{% endblock %}
+    </h3>
 </div>
 <nav>
     {% block navbar %}
         <h2>LITReview</h2>
         <ol>
             <li><a href="{% url 'flux' %}">Flux</a></li>
-            <li><a href="{% url 'post' %}">Posts</a></li>
-            <li><a>Abonnements</a></li>
+            <li><a href="{% url 'posts' %}">Posts</a></li>
+            <li><a href="{% url 'page_abonnement' %}">Abonnements</a></li>
             <li><a href="{% url 'déconnexion' %}">Se déconnecter</a></li>
         </ol>
     {% endblock navbar %}
@@ -27,15 +27,17 @@
     <div>
         <h2>Bonjour {{ user }}</h2>
     </div>
-    {% if messages %}
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    {% endif %}
-    {% block content %}
-
-
-    {% endblock %}
-
+    <div>
+        <p>
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        </p>
+    </div>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

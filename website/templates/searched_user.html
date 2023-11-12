@@ -1,0 +1,22 @@
+{% extends 'base_user.html' %}
+
+{% block content %}
+    <div>
+        {% include 'search_field.html' %}
+    </div>
+    {% if search %}
+        {% if searched_user %}
+            <h3>Votre résultat pour {{ search }}</h3>
+            {% for user in searched_user %}
+                <li>
+                    {{ user }}
+                    <button type="button"><a href="{% url "s'abonner" pk=user.id %}">S'abonner</a></button>
+                </li>
+            {% endfor %}
+        {% elif not searched_user %}
+            <h3>Aucun résultat pour {{ search }}...</h3>
+        {% endif %}
+    {% else %}
+        <h3>Aucun résultat pour {{ search }}...</h3>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Abonnement{% endblock %}
+
+{% block subtitle %}Onglet d'abonnement{% endblock %}
+
+{% block content %}
+    <div>
+        <h3>Suivre d'autres utilisateurs</h3>
+       {% include 'search_field.html' %}
+    </div>
+    <div>
+        <h3>Abonnements</h3>
+        {% for user in user_followed %}
+            <li>
+                {{ user.user }}
+                <button type="button"><a href="{% url "désabonner" pk=user.user_id %}">Désabonner</a></button>
+            </li>
+        {% endfor %}
+    </div>
+    <div>
+        <h3>Abonnés</h3>
+        {% for user in follower %}
+            <li>{{ user.followed_user }}</li>
+        {% endfor %}
+    </div>
+
+    <button>Retourner</button>
+
+
+{% endblock %}
+
+

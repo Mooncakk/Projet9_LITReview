@@ -1,0 +1,7 @@
+ <form method="post" action="{% url 'utilisateur_recherché' %}">
+     {% csrf_token %}
+
+     <input type="search" placeholder="Nom d'utilisateur" name="search">
+
+     <button type="submit">Rechercher</button>
+ </form>

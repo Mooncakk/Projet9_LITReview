@@ -1,0 +1,27 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Supprimer mon ticket{% endblock %}
+
+{% block subtitle %}Supprimer mon ticket{% endblock %}
+
+{% block content %}
+    <h4>Etes vous sûr de vouloir supprimer cette critique ?</h4>
+    <div>
+        {% include 'review/review_details.html' %}
+        <div>
+            {% if  post.ticket.user  == user %}
+                <h4>Ticket</h4>
+            {% else %}
+                <h4>Ticket - {{ post.ticket.user }}</h4>
+            {% endif %}
+            <h3>{{ post.ticket.title }}</h3>
+            {% if post.ticket.thumbnail %}
+                <img src="{{ post.ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
+            {% endif %}
+        </div>
+    </div>
+
+    <button><a href="{% url 'posts' %}">Retourner</a></button>
+    <button><a href="{% url 'supprimer_critique' pk=post.id %}">Supprimer</a></button>
+
+{% endblock %}

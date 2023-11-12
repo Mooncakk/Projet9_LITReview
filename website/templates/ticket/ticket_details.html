@@ -1,0 +1,6 @@
+<p>{{ post.last_update }}</p>
+<p>{{ post.title }}</p>
+<p>{{ post.description }}</p>
+{% if post.thumbnail %}
+    <p><img src="{{ post.thumbnail.url }}" alt="L'image du ticket" height="200" width="135"></p>
+{% endif %}

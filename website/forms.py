@@ -1,6 +1,6 @@
 from django.forms import ModelForm, forms, widgets
 
-from website.models import Ticket, Review
+from website.models import Ticket, Review, UserFollows
 
 
 class TicketForm(ModelForm):
@@ -24,7 +24,6 @@ class ReviewForm(ModelForm, forms.Form):
         labels = {'headline': 'Titre',
                   'rating': 'Note',
                   'body': 'Commentaire'}
-
 
 
 

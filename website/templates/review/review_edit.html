@@ -1,0 +1,27 @@
+{% extends 'base_user.html' %}
+
+{% block title %}Modifier votre critique{% endblock %}
+
+{% block subtitle %}Modifier votre critique{% endblock %}
+{% block content %}
+    <div>
+        <div>
+            <h4>Vous êtes en train de poster en réponse à </h4>
+            <div>
+                <p>{{ post.user }} a demandé une critique</p>
+                {% include 'ticket/ticket_details.html' %}
+            </div>
+        </div>
+        <div>
+            <h4>Critique</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button><a href="{% url 'posts' %}">Retourner</a></button>
+                <input type="submit" value="Envoyer">
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

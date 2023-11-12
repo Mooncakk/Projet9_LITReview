@@ -2,29 +2,26 @@
 
 {% block title %}Créer une critique{% endblock %}
 
+{% block subtitle %}Créer une critique (en réponse à un ticket){% endblock %}
+
 {% block content %}
     <h3>Créer une critique</h3>
-    <p>Vous êtes en train de poster en réponse à</p>
     <div>
-        {{ ticket.title }}
-        {{ ticket.description }}
-        {% if ticket.thumbnail %}
-            <img src="{{ ticket.thumbnail.url }}" alt="L'image du ticket" height="200" width="135">
-        {% endif %}
-        {{ ticket.user }}
-        {{ ticket.time_created }}
-        {{ ticket.last_update }}<br/><br/>
-    </div>
-    <form method="post">
-        {% csrf_token %}
-
-        <p>Critique</p>
+        <h4>Vous êtes en train de poster en réponse à </h4>
         <div>
-            {{ form.as_p }}
+            <p>{{ post.user }} a demandé une critique</p>
+            {% include 'ticket/ticket_details.html' %}
         </div>
+    </div>
+    <div>
+        <h4>Critique</h4>
+        <form method="post">
+            {% csrf_token %}
 
-        <button><a href="{% url 'flux' %}">Retourner</a></button>
-        <input type="submit" value="Envoyer">
+            {{ form.as_p }}
 
-    </form>
+            <button><a href="{% url 'flux' %}">Retourner</a></button>
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
 {% endblock %}

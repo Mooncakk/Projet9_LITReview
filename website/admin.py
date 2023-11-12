@@ -29,7 +29,7 @@ admin.site.register(Review, ReviewAdmin)
 
 class UserFollowsAdmin(admin.ModelAdmin):
 
-    list_display = ('followed_user', )
+    list_display = ('user', 'followed_user')
 
 
 admin.site.register(UserFollows, UserFollowsAdmin)
